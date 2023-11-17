@@ -78,7 +78,7 @@ const PostCard = (props) => {
     const client = new AxiosClient();
 
     try {
-      const response = await client.delete(`/posts/delete/${postId}`);
+      const response = await client.delete(`${process.env.REACT_APP_SERVER_BASE_URL}/posts/delete/${postId}`);
 
       if (response.status === 200) {
         onDelete(postId);
@@ -98,7 +98,7 @@ const PostCard = (props) => {
     const client = new AxiosClient();
 
     try {
-      const response = await client.patch(`/posts/update/${postId}`, {
+      const response = await client.patch(`${process.env.REACT_APP_SERVER_BASE_URL}/posts/update/${postId}`, {
         content: editedContent,
       });
 
@@ -131,7 +131,7 @@ redirectToHome();
     const client = new AxiosClient();
 
     try {
-      const response = await client.delete(`/comment/delete/${commentId}`);
+      const response = await client.delete(`${process.env.REACT_APP_SERVER_BASE_URL}/comment/delete/${commentId}`);
 
       if (response.statusCode === 200) {
         getComments(postId);
