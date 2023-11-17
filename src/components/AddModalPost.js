@@ -72,8 +72,9 @@ const AddPostModal = ({ close }) => {
           const data = await response.json();
           console.log("Post added:", data);
           close(false);
-          redirectToHome();
+          
         } else {
+          redirectToHome();
           throw new Error("Failed to add post");
         }
       } catch (error) {

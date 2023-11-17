@@ -70,8 +70,9 @@ const AddUser = ({ close }) => {
           const data = await response.json();
           console.log("users added:", data);
           close(false);
-          redirectToLogin();
+          
         } else {
+          redirectToLogin();
           throw new Error("Failed to add post");
         }
       } catch (error) {

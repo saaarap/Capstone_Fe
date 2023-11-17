@@ -63,10 +63,12 @@ const PostCard = (props) => {
       if (response.status === 201) {
         setNewComment("");
         setComments((prevComments) => [response.payload, ...prevComments]);
+      } else {
         redirectToHome();
       }
     } catch (error) {
       console.error(error);
+      redirectToHome();
     }
   };
 
