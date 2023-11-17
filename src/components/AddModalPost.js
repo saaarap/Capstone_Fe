@@ -8,10 +8,10 @@ const client = new AxiosClient();
 const AddPostModal = ({ close }) => {
   const [file, setFile] = useState(null);
   const [formData, setFormData] = useState({ title: "", description: "" });
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const redirectToHome = () => {
-    history("/home");
+    navigate('/home');
   }
   const onChangeSetFile = (e) => {
     setFile(e.target.files[0]);

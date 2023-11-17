@@ -21,10 +21,10 @@ const PostCard = (props) => {
     onUpdate,
   } = props;
   const client = new AxiosClient();
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const redirectToHome = () => {
-    history("/home");
+    navigate('/home');
   }
 
   const getComments = async (postId) => {

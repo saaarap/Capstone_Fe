@@ -12,9 +12,9 @@ const AddUser = ({ close }) => {
     email: "",
     password: "",
   });
-  const history = useNavigate();
+  const navigate = useNavigate();
   const redirectToLogin = () => {
-    history("/login")
+    navigate('/login')
   }
 
   const onChangeSetFile = (e) => {
