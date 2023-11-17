@@ -2,11 +2,10 @@ import React from "react";
 import { Timeline } from "flowbite-react";
 import { HiCalendar } from "react-icons/hi";
 import image from "../components/finale.png";
+import { Link } from "react-router-dom";
 
 function AboutUs() {
-  const backHome = () => {
-    window.location.href = "http://localhost:3000/home";
-  };
+
   return (
     <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
       <img src={image} alt="Finale" />
@@ -47,14 +46,13 @@ function AboutUs() {
           </Timeline.Content>
         </Timeline.Item>
       </Timeline>
-
+<Link to="/home">
       <svg
         class="w-8 h-8 items-center justify-center cursor-pointer p-1 mb-5"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 20 20"
-        onClick={backHome}
       >
         <path
           stroke="currentColor"
@@ -64,6 +62,7 @@ function AboutUs() {
           d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9"
         />
       </svg>
+</Link>
     </div>
   );
 }
