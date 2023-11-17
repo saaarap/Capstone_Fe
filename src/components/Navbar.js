@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 
 const DefaultNavbar = () => {
   const { logout } = useUser();
-  const history = useNavigate();
+  const navigate = useNavigate();
   const redirectToLogin = () => {
-    history.push("/login")
+    navigate("/login")
   }
 
   const handleLogout = () => {
