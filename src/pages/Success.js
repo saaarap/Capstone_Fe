@@ -1,14 +1,11 @@
 import React from "react";
 import { Button } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 function Success() {
-  const goToHome = () => {
-    window.location.href = "http://localhost:3000/home";
-  };
-
   return (
     <div className="flex flex-wrap gap-2">
-      <Button onClick={goToHome}>Go to Home!</Button>
+      <Link to="/home"><Button>Go to Home!</Button> </Link>
     </div>
   );
 }
