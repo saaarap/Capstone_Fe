@@ -16,7 +16,7 @@ const AddPostModal = ({ close }) => {
   const onChangeSetFile = (e) => {
     setFile(e.target.files[0]);
   };
-
+  
   const uploadFile = async (cover) => {
     try {
       const fileData = new FormData();
