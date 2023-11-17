@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import AxiosClient from "../clients/clients";
 import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const client = new AxiosClient();
 
 const AddPostModal = ({ close }) => {
   const [file, setFile] = useState(null);
   const [formData, setFormData] = useState({ title: "", description: "" });
+  const history = useNavigate();
 
+  const redirectToHome = () => {
+    history.push("/home");
+  }
   const onChangeSetFile = (e) => {
     setFile(e.target.files[0]);
   };
@@ -67,7 +72,7 @@ const AddPostModal = ({ close }) => {
           const data = await response.json();
           console.log("Post added:", data);
           close(false);
-          window.location.href = "http://localhost:3000/home";
+          redirectToHome();
         } else {
           throw new Error("Failed to add post");
         }

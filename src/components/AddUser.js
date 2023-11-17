@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AxiosClient from "../clients/clients";
 import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const client = new AxiosClient();
 
@@ -11,6 +12,10 @@ const AddUser = ({ close }) => {
     email: "",
     password: "",
   });
+  const history = useNavigate();
+  const redirectToLogin = () => {
+    history.push("/login")
+  }
 
   const onChangeSetFile = (e) => {
     setFile(e.target.files[0]);
@@ -65,7 +70,7 @@ const AddUser = ({ close }) => {
           const data = await response.json();
           console.log("users added:", data);
           close(false);
-          window.location.href = "http://localhost:3000/login";
+          redirectToLogin();
         } else {
           throw new Error("Failed to add post");
         }

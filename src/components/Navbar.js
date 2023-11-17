@@ -3,15 +3,20 @@ import { Navbar } from "flowbite-react";
 import image from "../components/finale.png";
 import { Link } from "react-router-dom";
 import { useUser } from "../components/UserContext";
+import { useNavigate } from "react-router-dom";
 
 const DefaultNavbar = () => {
   const { logout } = useUser();
+  const history = useNavigate();
+  const redirectToLogin = () => {
+    history.push("/login")
+  }
 
   const handleLogout = () => {
     const confirmLogout = window.confirm("Sei sicuro di voler uscire?");
     if (confirmLogout) {
       logout();
-      window.location.href = "http://localhost:3000/login";
+      redirectToLogin();
     }
   };
 

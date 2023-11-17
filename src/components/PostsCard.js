@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, Button, Avatar, Textarea } from "flowbite-react";
 import AxiosClient from "../clients/clients";
 import { useUser } from "./UserContext";
+import { useNavigate } from "react-router-dom";
 
 const PostCard = (props) => {
   const { loggedInUser } = useUser();
@@ -20,6 +21,11 @@ const PostCard = (props) => {
     onUpdate,
   } = props;
   const client = new AxiosClient();
+  const history = useNavigate();
+
+  const redirectToHome = () => {
+    history.push("/home");
+  }
 
   const getComments = async (postId) => {
     try {
@@ -57,7 +63,7 @@ const PostCard = (props) => {
       if (response.status === 201) {
         setNewComment("");
         setComments((prevComments) => [response.payload, ...prevComments]);
-        window.location.href = "http://localhost:3000/home";
+        redirectToHome();
       }
     } catch (error) {
       console.error(error);
@@ -77,7 +83,7 @@ const PostCard = (props) => {
       if (response.status === 200) {
         onDelete(postId);
       } else {
-        window.location.href = "http://localhost:3000/home";
+        redirectToHome();
       }
     } catch (error) {
       console.error(error);
@@ -100,7 +106,7 @@ const PostCard = (props) => {
         onUpdate(postId);
         setIsEditing(false);
       } else {
-        window.location.href = "http://localhost:3000/home";
+redirectToHome();
       }
     } catch (error) {
       console.error(error);
