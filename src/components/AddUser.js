@@ -21,7 +21,7 @@ const AddUser = ({ close }) => {
       const fileData = new FormData();
       fileData.append("avatar", avatar);
 
-      const response = await fetch("http://localhost:4040/users/cloudUpload", {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/users/cloudUpload`, {
         method: "POST",
         body: fileData,
       });
@@ -53,7 +53,7 @@ const AddUser = ({ close }) => {
           author: decoded.id,
         };
 
-        const response = await fetch("http://localhost:4040/users/add", {
+        const response = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/users/add`, {
           headers: {
             "Content-Type": "application/json",
           },

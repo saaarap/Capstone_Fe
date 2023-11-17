@@ -17,7 +17,7 @@ const AddPostModal = ({ close }) => {
       const fileData = new FormData();
       fileData.append("cover", cover);
 
-      const response = await fetch("http://localhost:4040/posts/cloudUpload", {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/posts/cloudUpload`, {
         method: "POST",
         body: fileData,
       });
@@ -55,7 +55,7 @@ const AddPostModal = ({ close }) => {
           author: decoded.id,
         };
 
-        const response = await fetch("http://localhost:4040/posts/create", {
+        const response = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/posts/create`, {
           headers: {
             "Content-Type": "application/json",
           },

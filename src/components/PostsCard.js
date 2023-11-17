@@ -24,7 +24,7 @@ const PostCard = (props) => {
   const getComments = async (postId) => {
     try {
       const response = await client.get(
-        `http://localhost:4040/comment/${postId}`
+        `${process.env.REACT_APP_SERVER_BASE_URL}/comment/${postId}`
       );
 
       setComments(response.comments);
@@ -43,7 +43,7 @@ const PostCard = (props) => {
       }
 
       const response = await client.post(
-        `http://localhost:4040/comment/create/${postId}`,
+        `${process.env.REACT_APP_SERVER_BASE_URL}/comment/create/${postId}`,
         {
           comments: newComment,
           authorId: loggedInUser.id,

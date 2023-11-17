@@ -6,7 +6,7 @@ const EditPost = ({ postId, onUpdate }) => {
   const handleUpdatePost = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4040/posts/update/${postId}`,
+        `${process.env.REACT_APP_SERVER_BASE_URL}/posts/update/${postId}`,
         {
           method: "PATCH",
           headers: {
