@@ -24,7 +24,7 @@ const PostCard = (props) => {
   const history = useNavigate();
 
   const redirectToHome = () => {
-    history.push("/home");
+    history("/home");
   }
 
   const getComments = async (postId) => {

@@ -11,7 +11,7 @@ const AddPostModal = ({ close }) => {
   const history = useNavigate();
 
   const redirectToHome = () => {
-    history.push("/home");
+    history("/home");
   }
   const onChangeSetFile = (e) => {
     setFile(e.target.files[0]);

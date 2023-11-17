@@ -14,7 +14,7 @@ const AddUser = ({ close }) => {
   });
   const history = useNavigate();
   const redirectToLogin = () => {
-    history.push("/login")
+    history("/login")
   }
 
   const onChangeSetFile = (e) => {
