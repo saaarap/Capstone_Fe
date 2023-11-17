@@ -26,7 +26,7 @@ const Login = () => {
 
     try {
       const userInfo = await login();
-      const response = await fetch(`${REACT_APP_SERVER_BASE_URL}/login`, {
+      const response = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const Login = () => {
   };
 
   const redirectForLoginWithGithub = () => {
-    window.location.href = `${REACT_APP_SERVER_BASE_URL}/auth/github`;
+    window.location.href = `${process.env.REACT_APP_SERVER_BASE_URL}/auth/github`;
   };
 
   const toggleAddUserForm = () => {
